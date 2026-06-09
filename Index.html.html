@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ER Concrete Solutions – Concrete Services in Austin, Texas</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --yellow:  #F5A623;
+    --yellow-dk:#D4891A;
+    --navy:    #1A2744;
+    --navy-lt: #243358;
+    --gray-dk: #333333;
+    --gray-md: #666666;
+    --gray-lt: #F4F4F4;
+    --white:   #FFFFFF;
+    --border:  #E0E0E0;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Open Sans', sans-serif; background: var(--white); color: var(--gray-dk); overflow-x: hidden; }
+
+  /* TOP BAR */
+  .topbar { background: var(--navy); color: rgba(255,255,255,.85); font-size: .82rem; padding: .45rem 0; }
+  .topbar-inner { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: .5rem; }
+  .topbar a { color: var(--yellow); text-decoration: none; font-weight: 600; }
+
+  /* NAV */
+  nav { position: sticky; top: 0; background: var(--white); box-shadow: 0 2px 12px rgba(0,0,0,.1); z-index: 1000; }
+  .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; display: flex; align-items: center; justify-content: space-between; height: 72px; }
+  .nav-logo { display: flex; align-items: center; gap: .75rem; text-decoration: none; }
+  .nav-logo-icon { width: 48px; height: 48px; background: var(--navy); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; }
+  .nav-logo-name { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1.1rem; color: var(--navy); display: block; letter-spacing: -.01em; }
+  .nav-logo-sub { font-size: .72rem; color: var(--gray-md); letter-spacing: .04em; text-transform: uppercase; }
+  .nav-links { display: flex; gap: 0; list-style: none; }
+  .nav-links a { display: block; padding: .5rem 1rem; color: var(--gray-dk); text-decoration: none; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: .82rem; text-transform: uppercase; letter-spacing: .06em; transition: color .2s; }
+  .nav-links a:hover { color: var(--yellow-dk); }
+  .nav-cta { background: var(--yellow) !important; color: var(--navy) !important; border-radius: 4px; }
+  .nav-cta:hover { background: var(--yellow-dk) !important; color: var(--white) !important; }
+
+  /* HERO */
+  #hero { position: relative; background: linear-gradient(135deg, var(--navy) 0%, var(--navy-lt) 100%); min-height: 560px; display: flex; align-items: center; overflow: hidden; }
+  .hero-pattern { position: absolute; inset: 0; background-image: radial-gradient(circle at 80% 50%, rgba(245,166,35,.15) 0%, transparent 50%), repeating-linear-gradient(45deg, rgba(255,255,255,.02) 0px, rgba(255,255,255,.02) 1px, transparent 1px, transparent 40px); }
+  .hero-inner { position: relative; z-index: 1; max-width: 1200px; margin: 0 auto; padding: 5rem 1.5rem; display: grid; grid-template-columns: 1fr 420px; gap: 3rem; align-items: center; width: 100%; }
+  .hero-eyebrow { display: inline-block; background: var(--yellow); color: var(--navy); font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; padding: .35rem 1rem; border-radius: 3px; margin-bottom: 1.25rem; }
+  .hero-title { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: clamp(2.2rem, 4.5vw, 3.4rem); color: var(--white); line-height: 1.1; margin-bottom: 1.25rem; letter-spacing: -.02em; }
+  .hero-title span { color: var(--yellow); }
+  .hero-desc { color: rgba(255,255,255,.8); font-size: 1.05rem; line-height: 1.75; margin-bottom: 2rem; max-width: 520px; }
+  .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn { display: inline-block; padding: .85rem 2rem; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: .88rem; letter-spacing: .05em; text-transform: uppercase; text-decoration: none; border-radius: 4px; transition: all .22s; border: 2px solid transparent; cursor: pointer; }
+  .btn-yellow { background: var(--yellow); color: var(--navy); }
+  .btn-yellow:hover { background: var(--yellow-dk); color: var(--white); }
+  .btn-outline-white { background: transparent; color: var(--white); border-color: rgba(255,255,255,.5); }
+  .btn-outline-white:hover { background: var(--white); color: var(--navy); }
+  .hero-card { background: var(--white); border-radius: 10px; padding: 2.25rem; box-shadow: 0 20px 60px rgba(0,0,0,.25); }
+  .hero-card h3 { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1.25rem; color: var(--navy); margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 2px solid var(--gray-lt); }
+  .card-form { display: flex; flex-direction: column; gap: .75rem; }
+  .card-form input, .card-form select, .card-form textarea { width: 100%; padding: .7rem 1rem; border: 1.5px solid var(--border); border-radius: 4px; font-family: 'Open Sans', sans-serif; font-size: .9rem; color: var(--gray-dk); outline: none; transition: border-color .2s; background: var(--white); }
+  .card-form input:focus, .card-form select:focus, .card-form textarea:focus { border-color: var(--yellow); }
+  .card-form textarea { resize: vertical; min-height: 80px; }
+  .card-form button { width: 100%; background: var(--yellow); color: var(--navy); border: none; padding: .9rem; font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: .9rem; letter-spacing: .06em; text-transform: uppercase; border-radius: 4px; cursor: pointer; transition: background .2s; }
+  .card-form button:hover { background: var(--yellow-dk); color: var(--white); }
+
+  /* STATS */
+  .stats-strip { background: var(--yellow); padding: 1.5rem 0; }
+  .stats-inner { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; display: flex; justify-content: center; gap: 4rem; flex-wrap: wrap; }
+  .stat { text-align: center; }
+  .stat-num { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 2rem; color: var(--navy); display: block; line-height: 1; }
+  .stat-lbl { font-size: .78rem; font-weight: 600; color: var(--navy); opacity: .75; text-transform: uppercase; letter-spacing: .08em; margin-top: .25rem; }
+
+  /* LAYOUT */
+  .section-pad { padding: 5rem 0; }
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+  .section-kicker { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: .72rem; letter-spacing: .18em; text-transform: uppercase; color: var(--yellow-dk); margin-bottom: .6rem; display: block; }
+  .section-title { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: clamp(1.6rem, 3vw, 2.3rem); color: var(--navy); line-height: 1.2; margin-bottom: 1rem; }
+  .section-title span { color: var(--yellow-dk); }
+  .section-desc { color: var(--gray-md); line-height: 1.75; max-width: 640px; }
+  .section-header { margin-bottom: 3rem; }
+  .section-header.center { text-align: center; }
+  .section-header.center .section-desc { margin: 0 auto; }
+  hr.divider { border: none; border-top: 3px solid var(--yellow); width: 48px; margin: 1rem 0 1.5rem; }
+  hr.divider.center { margin: 1rem auto 1.5rem; }
+
+  /* SERVICES */
+  #services { background: var(--gray-lt); }
+  .services-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.5rem; }
+  .service-card { background: var(--white); border-radius: 8px; overflow: hidden; box-shadow: 0 2px 16px rgba(0,0,0,.07); transition: transform .25s, box-shadow .25s; }
+  .service-card:hover { transform: translateY(-5px); box-shadow: 0 12px 36px rgba(0,0,0,.13); }
+  .service-img { width: 100%; height: 180px; background: linear-gradient(135deg, var(--navy) 0%, var(--navy-lt) 100%); display: flex; align-items: center; justify-content: center; font-size: 3.5rem; }
+  .service-body { padding: 1.4rem; }
+  .service-name { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 1rem; color: var(--navy); margin-bottom: .5rem; }
+  .service-desc { font-size: .875rem; color: var(--gray-md); line-height: 1.6; margin-bottom: 1rem; }
+  .service-link { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; color: var(--yellow-dk); text-decoration: none; transition: letter-spacing .2s; }
+  .service-link:hover { letter-spacing: .14em; }
+
+  /* ABOUT */
+  #about { background: var(--white); }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+  .about-img-wrap { position: relative; }
+  .about-img { width: 100%; aspect-ratio: 4/3; background: linear-gradient(135deg, #c8d4e8 0%, #dde6f0 100%); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 6rem; box-shadow: 0 8px 40px rgba(0,0,0,.12); }
+  .about-badge { position: absolute; bottom: -1.25rem; right: -1.25rem; background: var(--yellow); color: var(--navy); font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: .9rem; padding: 1.25rem 1.5rem; border-radius: 8px; text-align: center; line-height: 1.3; box-shadow: 0 4px 20px rgba(0,0,0,.15); }
+  .about-badge strong { font-size: 1.7rem; display: block; line-height: 1; }
+  .about-checks { margin-top: 1.5rem; display: flex; flex-direction: column; gap: .75rem; }
+  .about-check { display: flex; gap: .75rem; align-items: flex-start; font-size: .92rem; color: var(--gray-dk); line-height: 1.5; }
+  .about-check .icon { width: 22px; height: 22px; border-radius: 50%; background: var(--yellow); color: var(--navy); font-size: .75rem; font-weight: 800; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: .15rem; }
+
+  /* WHY */
+  #why { background: var(--navy); }
+  .why-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
+  .why-card { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1); border-radius: 8px; padding: 2rem 1.5rem; transition: background .25s; }
+  .why-card:hover { background: rgba(255,255,255,.1); }
+  .why-icon { font-size: 2rem; margin-bottom: 1rem; display: block; }
+  .why-title { font-family: 'Montserrat', sans-serif; font-weight: 700; color: var(--white); margin-bottom: .5rem; font-size: .95rem; }
+  .why-desc { font-size: .85rem; color: rgba(255,255,255,.65); line-height: 1.6; }
+
+  /* PROJECTS */
+  #projects { background: var(--gray-lt); }
+  .projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 3rem; }
+  .project-tile { aspect-ratio: 4/3; background: linear-gradient(135deg, #c0cfe0 0%, #d8e4ef 100%); border-radius: 8px; display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative; cursor: pointer; box-shadow: 0 2px 12px rgba(0,0,0,.08); transition: transform .25s; font-size: 3rem; }
+  .project-tile:hover { transform: scale(1.02); }
+  .project-tile-label { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(26,39,68,.85)); color: var(--white); font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: .9rem; padding: 2rem 1rem .85rem; text-align: center; }
+
+  /* TESTIMONIALS */
+  #testimonials { background: var(--white); }
+  .testi-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
+  .testi-card { background: var(--gray-lt); border-radius: 8px; padding: 1.75rem; border-left: 4px solid var(--yellow); transition: box-shadow .25s; }
+  .testi-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,.1); }
+  .testi-stars { color: #F5A623; font-size: 1rem; margin-bottom: .75rem; letter-spacing: .1em; }
+  .testi-quote { font-size: .92rem; line-height: 1.7; color: var(--gray-dk); margin-bottom: 1.25rem; font-style: italic; }
+  .testi-author { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: .82rem; color: var(--navy); }
+  .testi-location { font-size: .78rem; color: var(--gray-md); margin-top: .15rem; }
+
+  /* AREA */
+  #area { background: var(--gray-lt); }
+  .area-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+  .area-map { background: #d0dce8; border-radius: 8px; height: 340px; display: flex; align-items: center; justify-content: center; font-size: 4rem; box-shadow: 0 4px 20px rgba(0,0,0,.1); position: relative; }
+  .area-map-label { position: absolute; bottom: 1rem; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: .8rem; letter-spacing: .1em; color: var(--navy); opacity: .5; text-transform: uppercase; }
+  .area-tags { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: 1.5rem; }
+  .area-tag { background: var(--white); border: 1.5px solid var(--border); color: var(--navy); font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: .78rem; padding: .4rem .9rem; border-radius: 100px; letter-spacing: .04em; }
+
+  /* FAQ */
+  #faq { background: var(--white); }
+  .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+  .faq-list { display: flex; flex-direction: column; }
+  .faq-item { border-bottom: 1px solid var(--border); }
+  .faq-q { display: flex; justify-content: space-between; align-items: center; padding: 1.1rem 0; cursor: pointer; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: .92rem; color: var(--navy); gap: 1rem; transition: color .2s; }
+  .faq-q:hover { color: var(--yellow-dk); }
+  .faq-toggle { width: 24px; height: 24px; border-radius: 50%; background: var(--yellow); color: var(--navy); font-size: 1.1rem; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: transform .3s; }
+  .faq-item.open .faq-toggle { transform: rotate(45deg); }
+  .faq-a { font-size: .88rem; color: var(--gray-md); line-height: 1.7; max-height: 0; overflow: hidden; transition: max-height .4s ease, padding .3s; }
+  .faq-item.open .faq-a { max-height: 200px; padding-bottom: 1rem; }
+  .faq-cta-box { background: var(--navy); border-radius: 10px; padding: 2.5rem; color: var(--white); }
+  .faq-cta-box h3 { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1.4rem; margin-bottom: 1rem; line-height: 1.2; }
+  .faq-cta-box p { color: rgba(255,255,255,.75); line-height: 1.7; margin-bottom: 1.5rem; font-size: .92rem; }
+  .faq-cta-box .phone { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1.6rem; color: var(--yellow); display: block; margin-bottom: 1.25rem; text-decoration: none; }
+
+  /* CONTACT */
+  #contact { background: var(--gray-lt); }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1.3fr; gap: 3rem; align-items: start; }
+  .contact-info-cards { display: flex; flex-direction: column; gap: 1rem; margin-top: 2rem; }
+  .contact-info-card { background: var(--white); border-radius: 8px; padding: 1.25rem 1.5rem; display: flex; gap: 1rem; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,.06); }
+  .ci-icon { width: 46px; height: 46px; border-radius: 8px; background: var(--navy); color: var(--white); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0; }
+  .ci-label { font-size: .72rem; font-weight: 600; text-transform: uppercase; letter-spacing: .1em; color: var(--gray-md); margin-bottom: .2rem; }
+  .ci-value { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: .95rem; color: var(--navy); }
+  .ci-value a { color: var(--navy); text-decoration: none; }
+  .ci-value a:hover { color: var(--yellow-dk); }
+  .contact-form-box { background: var(--white); border-radius: 10px; padding: 2.5rem; box-shadow: 0 4px 24px rgba(0,0,0,.08); }
+  .contact-form-box h3 { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1.25rem; color: var(--navy); margin-bottom: 1.5rem; }
+  .cf { display: flex; flex-direction: column; gap: .9rem; }
+  .cf-row { display: grid; grid-template-columns: 1fr 1fr; gap: .9rem; }
+  .cf-group { display: flex; flex-direction: column; gap: .35rem; }
+  .cf-group label { font-size: .75rem; font-weight: 600; text-transform: uppercase; letter-spacing: .08em; color: var(--gray-md); }
+  .cf-group input, .cf-group select, .cf-group textarea { padding: .7rem 1rem; border: 1.5px solid var(--border); border-radius: 4px; font-family: 'Open Sans', sans-serif; font-size: .9rem; color: var(--gray-dk); outline: none; background: var(--white); transition: border-color .2s; }
+  .cf-group input:focus, .cf-group select:focus, .cf-group textarea:focus { border-color: var(--yellow); }
+  .cf-group textarea { resize: vertical; min-height: 100px; }
+  .cf-submit { background: var(--yellow); color: var(--navy); border: none; padding: .9rem 2rem; font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: .88rem; letter-spacing: .06em; text-transform: uppercase; border-radius: 4px; cursor: pointer; transition: background .2s; width: 100%; }
+  .cf-submit:hover { background: var(--yellow-dk); color: var(--white); }
+
+  /* FOOTER */
+  footer { background: var(--navy); color: rgba(255,255,255,.75); }
+  .footer-top { max-width: 1200px; margin: 0 auto; padding: 3.5rem 1.5rem 2.5rem; display: grid; grid-template-columns: 1.5fr 1fr 1fr 1.2fr; gap: 2.5rem; }
+  .footer-brand-name { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1.2rem; color: var(--white); margin-bottom: .4rem; }
+  .footer-brand-sub { font-size: .78rem; letter-spacing: .1em; text-transform: uppercase; color: var(--yellow); margin-bottom: 1rem; }
+  .footer-brand-desc { font-size: .85rem; line-height: 1.7; color: rgba(255,255,255,.6); }
+  .footer-col h4 { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: .82rem; letter-spacing: .1em; text-transform: uppercase; color: var(--white); margin-bottom: 1rem; padding-bottom: .6rem; border-bottom: 2px solid var(--yellow); display: inline-block; }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: .5rem; }
+  .footer-col ul li a { color: rgba(255,255,255,.6); text-decoration: none; font-size: .85rem; transition: color .2s; }
+  .footer-col ul li a:hover { color: var(--yellow); }
+  .footer-contact-item { display: flex; gap: .6rem; align-items: flex-start; font-size: .85rem; color: rgba(255,255,255,.6); margin-bottom: .65rem; line-height: 1.4; }
+  .footer-contact-item a { color: rgba(255,255,255,.6); text-decoration: none; }
+  .footer-contact-item a:hover { color: var(--yellow); }
+  .footer-bottom { border-top: 1px solid rgba(255,255,255,.1); padding: 1.25rem 1.5rem; max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: .5rem; font-size: .78rem; color: rgba(255,255,255,.4); }
+
+  /* FLOAT */
+  .float-cta { position: fixed; bottom: 1.75rem; right: 1.75rem; background: var(--yellow); color: var(--navy); font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: .85rem; padding: .85rem 1.6rem; border-radius: 50px; text-decoration: none; box-shadow: 0 6px 28px rgba(245,166,35,.5); z-index: 999; display: flex; align-items: center; gap: .5rem; letter-spacing: .04em; transition: all .22s; }
+  .float-cta:hover { background: var(--yellow-dk); color: var(--white); transform: translateY(-2px); }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .hero-inner { grid-template-columns: 1fr; }
+    .hero-card { display: none; }
+    .about-grid, .area-grid, .contact-grid, .faq-grid { grid-template-columns: 1fr; }
+    .projects-grid { grid-template-columns: 1fr 1fr; }
+    .footer-top { grid-template-columns: 1fr 1fr; }
+    .cf-row { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 600px) {
+    .nav-links { display: none; }
+    .projects-grid { grid-template-columns: 1fr; }
+    .footer-top { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <span>📍 Serving Austin, TX &amp; Surrounding Areas</span>
+    <span>Call Us Today: <a href="tel:5125525589">512-552-5589</a></span>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="#hero">
+      <div class="nav-logo-icon">🏗️</div>
+      <div>
+        <span class="nav-logo-name">ER Concrete Solutions</span>
+        <span class="nav-logo-sub">Austin, Texas</span>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#testimonials">Reviews</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#contact" class="nav-cta">Get a Quote</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-pattern"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-eyebrow">Concrete Services in Austin, Texas</div>
+      <h1 class="hero-title">Quality Concrete<br>Work You Can <span>Trust</span></h1>
+      <p class="hero-desc">Are you looking for high-quality concrete services in Austin, TX? Look no further! ER Concrete Solutions specializes in offering the best concrete with the finest materials on the market.</p>
+      <div class="hero-btns">
+        <a href="#contact" class="btn btn-yellow">Get a Free Quote</a>
+        <a href="tel:5125525589" class="btn btn-outline-white">📞 512-552-5589</a>
+      </div>
+    </div>
+    <div class="hero-card">
+      <h3>Request a Free Estimate</h3>
+      <div class="card-form">
+        <input type="text" placeholder="First Name">
+        <input type="text" placeholder="Last Name">
+        <input type="email" placeholder="Email Address">
+        <input type="tel" placeholder="Phone Number">
+        <select>
+          <option value="">Select Service...</option>
+          <option>Concrete Driveway</option>
+          <option>Stamped Patio</option>
+          <option>Sidewalk / Walkway</option>
+          <option>Retaining Wall</option>
+          <option>Concrete Patio</option>
+          <option>Shed / Garage Slab</option>
+          <option>Decorative Concrete</option>
+          <option>Commercial Concrete</option>
+          <option>Concrete Repair</option>
+        </select>
+        <textarea placeholder="Tell us about your project..."></textarea>
+        <button onclick="this.textContent='Request Sent!'; this.style.background='#2a7a2a'; this.style.color='white'; this.disabled=true;">Submit Request</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-strip">
+  <div class="stats-inner">
+    <div class="stat"><span class="stat-num">10+</span><span class="stat-lbl">Years Experience</span></div>
+    <div class="stat"><span class="stat-num">500+</span><span class="stat-lbl">Projects Completed</span></div>
+    <div class="stat"><span class="stat-num">100%</span><span class="stat-lbl">Satisfaction Rate</span></div>
+    <div class="stat"><span class="stat-num">3000+</span><span class="stat-lbl">PSI Concrete Strength</span></div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section id="services" class="section-pad">
+  <div class="container">
+    <div class="section-header center">
+      <span class="section-kicker">What We Do</span>
+      <h2 class="section-title">High Quality Concrete <span>Solutions</span></h2>
+      <hr class="divider center">
+      <p class="section-desc">From driveways to decorative stamped patios, we bring Austin-area properties to life with durable, beautiful concrete craftsmanship.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card"><div class="service-img">🚗</div><div class="service-body"><div class="service-name">Concrete Driveways</div><p class="service-desc">Smooth, durable driveways built to handle Austin heat and heavy use. Standard and decorative finishes available.</p><a href="#contact" class="service-link">Explore More →</a></div></div>
+      <div class="service-card"><div class="service-img">🌿</div><div class="service-body"><div class="service-name">Stamped Patios</div><p class="service-desc">Beautiful stamped concrete mimicking stone, brick, or wood — superior longevity at a fraction of the cost.</p><a href="#contact" class="service-link">Explore More →</a></div></div>
+      <div class="service-card"><div class="service-img">🚶</div><div class="service-body"><div class="service-name">Sidewalks &amp; Walkways</div><p class="service-desc">Safe, clean, and well-finished walkways for residential and commercial properties across the Austin area.</p><a href="#contact" class="service-link">Explore More →</a></div></div>
+      <div class="service-card"><div class="service-img">🧱</div><div class="service-body"><div class="service-name">Retaining Walls</div><p class="service-desc">Engineered retaining walls that control erosion and add structural integrity to sloped terrain.</p><a href="#contact" class="service-link">Explore More →</a></div></div>
+      <div class="service-card"><div class="service-img">☀️</div><div class="service-body"><div class="service-name">Concrete Patios</div><p class="service-desc">Expand your outdoor living space with expertly poured concrete patios — perfect for Texas backyard living.</p><a href="#contact" class="service-link">Explore More →</a></div></div>
+      <div class="service-card"><div class="service-img">🏗️</div><div class="service-body"><div class="service-name">Shed &amp; Garage Slabs</div><p class="service-desc">Level, reinforced slabs for sheds, garages, and outbuildings. Properly graded and cured for lasting support.</p><a href="#contact" class="service-link">Explore More →</a></div></div>
+      <div class="service-card"><div class="service-img">🎨</div><div class="service-body"><div class="service-name">Decorative Concrete</div><p class="service-desc">Custom staining, engraving, and decorative finishes that turn plain concrete into an artistic feature.</p><a href="#contact" class="service-link">Explore More →</a></div></div>
+      <div class="service-card"><div class="service-img">🏢</div><div class="service-body"><div class="service-name">Commercial Concrete</div><p class="service-desc">Scalable solutions for commercial builds — parking lots, loading areas, foundations, and more.</p><a href="#contact" class="service-link">Explore More →</a></div></div>
+      <div class="service-card"><div class="service-img">🔧</div><div class="service-body"><div class="service-name">Concrete Repair</div><p class="service-desc">Crack repair, resurfacing, and restoration services to bring aging or damaged concrete back to life.</p><a href="#contact" class="service-link">Explore More →</a></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="section-pad">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-img-wrap">
+        <div class="about-img">🏗️</div>
+        <div class="about-badge"><strong>10+</strong>Years of<br>Experience</div>
+      </div>
+      <div>
+        <span class="section-kicker">About Us</span>
+        <h2 class="section-title">Over 10 Years of Experience in Residential &amp; <span>Commercial Concrete</span></h2>
+        <hr class="divider">
+        <p class="section-desc">At ER Concrete Solutions, we specialize in offering the best concrete with the finest materials on the market. With over ten years of experience, we design and work with concrete according to our clients' needs.</p>
+        <p class="section-desc" style="margin-top:1rem;">Our commitment to excellence and customer satisfaction positions us as one of the best options in the Austin region. Whether for residential, commercial, or industrial projects, we guarantee durability and flawless execution.</p>
+        <div class="about-checks">
+          <div class="about-check"><span class="icon">✓</span><span>Licensed, insured, and fully permitted for all Austin-area projects</span></div>
+          <div class="about-check"><span class="icon">✓</span><span>Premium materials rated at 3,000–6,000 PSI depending on application</span></div>
+          <div class="about-check"><span class="icon">✓</span><span>Transparent quotes — no hidden fees, ever</span></div>
+          <div class="about-check"><span class="icon">✓</span><span>Residential, commercial, and decorative work accepted</span></div>
+          <div class="about-check"><span class="icon">✓</span><span>Workmanship warranty on every project we complete</span></div>
+        </div>
+        <br>
+        <a href="#contact" class="btn btn-yellow">Start Your Project</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section id="why" class="section-pad">
+  <div class="container">
+    <div class="section-header center">
+      <span class="section-kicker" style="color:var(--yellow);">Why Choose Us</span>
+      <h2 class="section-title" style="color:white;">Why Choose <span>ER Concrete Solutions?</span></h2>
+      <hr class="divider center">
+      <p class="section-desc" style="margin:0 auto;color:rgba(255,255,255,.7);">We are the best choice in Austin, Texas. Don't be fooled by contractors who take your money and leave — choose the best.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card"><span class="why-icon">🏆</span><div class="why-title">Superior Quality</div><p class="why-desc">Recognized for consistently delivering top-tier concrete work throughout the Austin metro area.</p></div>
+      <div class="why-card"><span class="why-icon">⏱️</span><div class="why-title">On-Time Delivery</div><p class="why-desc">We respect your time. Every project is planned and executed to meet the agreed-upon timeline.</p></div>
+      <div class="why-card"><span class="why-icon">💰</span><div class="why-title">Fair, Honest Pricing</div><p class="why-desc">Transparent quotes with no surprise charges. The most competitive pricing in the Austin area.</p></div>
+      <div class="why-card"><span class="why-icon">🛡️</span><div class="why-title">Licensed &amp; Insured</div><p class="why-desc">Fully licensed, bonded, and insured for your complete peace of mind on every project.</p></div>
+      <div class="why-card"><span class="why-icon">👷</span><div class="why-title">Expert Team</div><p class="why-desc">Our skilled crew brings decades of combined experience to every residential and commercial job.</p></div>
+      <div class="why-card"><span class="why-icon">⭐</span><div class="why-title">5-Star Reviews</div><p class="why-desc">Hundreds of satisfied Austin homeowners and businesses trust us with their concrete projects.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="section-pad">
+  <div class="container">
+    <div class="section-header center">
+      <span class="section-kicker">Our Work</span>
+      <h2 class="section-title">Let's See Our <span>Projects</span></h2>
+      <hr class="divider center">
+    </div>
+    <div class="projects-grid">
+      <div class="project-tile">🚗<div class="project-tile-label">Concrete Driveways</div></div>
+      <div class="project-tile">🌿<div class="project-tile-label">Stamped Patios</div></div>
+      <div class="project-tile">🚶<div class="project-tile-label">Sidewalks &amp; Walkways</div></div>
+      <div class="project-tile">🧱<div class="project-tile-label">Retaining Walls</div></div>
+      <div class="project-tile">☀️<div class="project-tile-label">Concrete Patios</div></div>
+      <div class="project-tile">🎨<div class="project-tile-label">Decorative Concrete</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials" class="section-pad">
+  <div class="container">
+    <div class="section-header center">
+      <span class="section-kicker">Client Reviews</span>
+      <h2 class="section-title">What Our <span>Clients Say</span></h2>
+      <hr class="divider center">
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-quote">"ER Concrete knocked it out of the park. Our driveway looks absolutely incredible — neighbors keep asking who did it. Quick, clean, and professional all the way through."</p><div class="testi-author">Maria G.</div><div class="testi-location">Cedar Park, TX</div></div>
+      <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-quote">"Got quotes from three companies. ER Concrete had the fairest price AND showed up on time every day. The stamped patio turned out better than anything I'd imagined."</p><div class="testi-author">James T.</div><div class="testi-location">Round Rock, TX</div></div>
+      <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-quote">"Very responsive and easy to work with. They finished our retaining wall and walkway in two days. Solid craftsmanship — 100% recommend."</p><div class="testi-author">Sarah B.</div><div class="testi-location">Georgetown, TX</div></div>
+      <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-quote">"Professional, honest, and meticulous. These guys treat your property like it's their own. We've already referred them to our whole neighborhood."</p><div class="testi-author">Robert H.</div><div class="testi-location">Pflugerville, TX</div></div>
+      <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-quote">"They fixed our cracked garage slab fast and at a reasonable price. Clean work, no mess left behind. This is our go-to concrete company from now on."</p><div class="testi-author">Linda M.</div><div class="testi-location">Kyle, TX</div></div>
+      <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-quote">"Hired ER Concrete for our commercial parking lot expansion. On schedule, communicated daily, quality is outstanding. Highly recommend for commercial work."</p><div class="testi-author">Tom C.</div><div class="testi-location">Austin, TX</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- AREA -->
+<section id="area" class="section-pad">
+  <div class="container">
+    <div class="area-grid">
+      <div>
+        <span class="section-kicker">Where We Work</span>
+        <h2 class="section-title">Serving Austin &amp;<br><span>Surrounding Areas</span></h2>
+        <hr class="divider">
+        <p class="section-desc">We proudly serve homeowners and businesses throughout the Greater Austin area. If you're nearby, we're ready to help with your concrete project.</p>
+        <div class="area-tags">
+          <span class="area-tag">Austin</span><span class="area-tag">Round Rock</span><span class="area-tag">Cedar Park</span><span class="area-tag">Georgetown</span><span class="area-tag">Pflugerville</span><span class="area-tag">Kyle</span><span class="area-tag">Buda</span><span class="area-tag">Manor</span><span class="area-tag">Leander</span><span class="area-tag">Hutto</span><span class="area-tag">Lakeway</span><span class="area-tag">Bastrop</span>
+        </div>
+        <br>
+        <a href="#contact" class="btn btn-yellow">Get a Free Estimate</a>
+      </div>
+      <div class="area-map">📍<div class="area-map-label">Austin, Texas &amp; Surroundings</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="section-pad">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-kicker">FAQ</span>
+      <h2 class="section-title">Frequently Asked <span>Questions</span></h2>
+      <hr class="divider">
+    </div>
+    <div class="faq-grid">
+      <div class="faq-list">
+        <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">What is concrete?<span class="faq-toggle">+</span></div><div class="faq-a">Concrete is a construction material composed of cement, water, sand, and gravel. When hardened, it forms a solid and durable mass used in foundations, walls, roads, and bridges.</div></div>
+        <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">How do I get a quote?<span class="faq-toggle">+</span></div><div class="faq-a">Contact us via our online form, call 512-552-5589, or email us. We'll discuss your needs and provide a detailed, no-obligation quote.</div></div>
+        <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">How long does a project take?<span class="faq-toggle">+</span></div><div class="faq-a">Smaller residential projects like patios or driveways typically take 1–2 days. Larger commercial projects may take several weeks. We provide a clear timeline during planning.</div></div>
+        <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">What type of concrete do you use?<span class="faq-toggle">+</span></div><div class="faq-a">Our standard mix has a minimum strength of 3,000 PSI, with high-strength options exceeding 6,000 PSI for commercial and industrial applications.</div></div>
+        <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Do you offer warranties?<span class="faq-toggle">+</span></div><div class="faq-a">Yes, we offer warranties on all concrete work. We guarantee the quality of our materials and workmanship and are committed to resolving any issues.</div></div>
+        <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Do you handle permits and local codes?<span class="faq-toggle">+</span></div><div class="faq-a">Absolutely. We stay current with all Austin and Travis County codes and handle required permits for your complete peace of mind.</div></div>
+        <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Do you do custom design projects?<span class="faq-toggle">+</span></div><div class="faq-a">Yes! We specialize in custom projects and love creating unique designs — from special decorative finishes to one-of-a-kind concrete structures.</div></div>
+      </div>
+      <div class="faq-cta-box">
+        <h3>Let's Talk About Your Project</h3>
+        <p>Have more questions? Our team is ready to help you plan your next concrete project in Austin, TX. Give us a call or send a message.</p>
+        <a class="phone" href="tel:5125525589">📞 512-552-5589</a>
+        <a href="#contact" class="btn btn-yellow">Contact Us Now</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section-pad">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-kicker">Get In Touch</span>
+      <h2 class="section-title">Let's Work <span>Together</span></h2>
+      <hr class="divider">
+    </div>
+    <div class="contact-grid">
+      <div>
+        <p class="section-desc">Ready to start your concrete project? Reach out for a free estimate. We respond quickly and treat every project with full attention.</p>
+        <div class="contact-info-cards">
+          <div class="contact-info-card"><div class="ci-icon">📞</div><div><div class="ci-label">Phone</div><div class="ci-value"><a href="tel:5125525589">512-552-5589</a></div></div></div>
+          <div class="contact-info-card"><div class="ci-icon">📍</div><div><div class="ci-label">Service Area</div><div class="ci-value">Austin, TX &amp; Surrounding Areas</div></div></div>
+          <div class="contact-info-card"><div class="ci-icon">⏰</div><div><div class="ci-label">Hours</div><div class="ci-value">Mon – Sat: 7:00 AM – 7:00 PM</div></div></div>
+          <div class="contact-info-card"><div class="ci-icon">📧</div><div><div class="ci-label">Email</div><div class="ci-value"><a href="mailto:info@erconcretesolutions.com">info@erconcretesolutions.com</a></div></div></div>
+        </div>
+      </div>
+      <div class="contact-form-box">
+        <h3>Send Us a Message</h3>
+        <form class="cf" onsubmit="handleForm(event)">
+          <div class="cf-row">
+            <div class="cf-group"><label>First Name</label><input type="text" placeholder="John" required></div>
+            <div class="cf-group"><label>Last Name</label><input type="text" placeholder="Smith" required></div>
+          </div>
+          <div class="cf-row">
+            <div class="cf-group"><label>Email</label><input type="email" placeholder="john@email.com" required></div>
+            <div class="cf-group"><label>Phone</label><input type="tel" placeholder="(512) 000-0000"></div>
+          </div>
+          <div class="cf-group"><label>Service Needed</label><select><option value="">Select a service...</option><option>Concrete Driveway</option><option>Stamped Patio</option><option>Sidewalk / Walkway</option><option>Retaining Wall</option><option>Concrete Patio</option><option>Shed / Garage Slab</option><option>Decorative Concrete</option><option>Commercial Concrete</option><option>Concrete Repair</option><option>Other</option></select></div>
+          <div class="cf-group"><label>Project Address</label><input type="text" placeholder="123 Main St, Austin, TX"></div>
+          <div class="cf-group"><label>Comments / Details</label><textarea placeholder="Describe your project, timeline, and any questions..."></textarea></div>
+          <button type="submit" class="cf-submit">Submit Request</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-brand-name">ER Concrete Solutions</div>
+      <div class="footer-brand-sub">Austin, Texas</div>
+      <p class="footer-brand-desc">At ER Concrete Solutions, we specialize in offering the best concrete with the finest materials on the market. Serving Austin and surrounding areas with pride.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#services">Concrete Driveways</a></li>
+        <li><a href="#services">Stamped Patios</a></li>
+        <li><a href="#services">Sidewalks &amp; Walkways</a></li>
+        <li><a href="#services">Retaining Walls</a></li>
+        <li><a href="#services">Concrete Patios</a></li>
+        <li><a href="#services">Decorative Concrete</a></li>
+        <li><a href="#services">Commercial Concrete</a></li>
+        <li><a href="#services">Concrete Repair</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#testimonials">Reviews</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact Us</h4>
+      <div class="footer-contact-item"><span>📞</span><span><a href="tel:5125525589">512-552-5589</a></span></div>
+      <div class="footer-contact-item"><span>📧</span><span><a href="mailto:info@erconcretesolutions.com">info@erconcretesolutions.com</a></span></div>
+      <div class="footer-contact-item"><span>📍</span><span>Austin, TX &amp; Surrounding Areas</span></div>
+      <div class="footer-contact-item"><span>⏰</span><span>Mon–Sat: 7 AM – 7 PM</span></div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 ER Concrete Solutions · Austin, TX · All rights reserved.</span>
+    <span>512-552-5589</span>
+  </div>
+</footer>
+
+<a class="float-cta" href="tel:5125525589">📞 512-552-5589</a>
+
+<script>
+  function toggleFaq(el) {
+    const item = el.parentElement;
+    const wasOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!wasOpen) item.classList.add('open');
+  }
+  function handleForm(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('.cf-submit');
+    btn.textContent = 'Message Sent! We will be in touch soon.';
+    btn.style.background = '#2a7a2a';
+    btn.style.color = '#fff';
+    btn.disabled = true;
+  }
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.style.opacity='1'; e.target.style.transform='translateY(0)'; } });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.service-card, .testi-card, .project-tile, .why-card, .contact-info-card').forEach(el => {
+    el.style.opacity='0'; el.style.transform='translateY(24px)'; el.style.transition='opacity .5s ease, transform .5s ease'; obs.observe(el);
+  });
+</script>
+</body>
+</html>
